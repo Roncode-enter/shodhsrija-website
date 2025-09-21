@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.urls import path
 from . import views
 
@@ -10,7 +9,6 @@ urlpatterns = [
     path('projects/', views.ResearchProjectListView.as_view(), name='project-list'),
     path('projects/<int:pk>/', views.ResearchProjectDetailView.as_view(), name='project-detail'),
 ]
-=======
 from django.urls import path
 from . import views
 
@@ -22,4 +20,3 @@ urlpatterns = [
     path('projects/', views.ResearchProjectListView.as_view(), name='project-list'),
     path('projects/<int:pk>/', views.ResearchProjectDetailView.as_view(), name='project-detail'),
 ]
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0

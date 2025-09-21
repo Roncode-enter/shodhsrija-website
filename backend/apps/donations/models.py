@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -178,7 +177,6 @@ class DonationCampaign(TimeStampedModel):
         now = timezone.now()
         return (self.status == 'active' and 
                 self.start_date <= now <= self.end_date)
-=======
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -358,4 +356,3 @@ class DonationCampaign(TimeStampedModel):
         now = timezone.now()
         return (self.status == 'active' and 
                 self.start_date <= now <= self.end_date)
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0

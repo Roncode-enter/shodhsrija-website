@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Research Admin
 from apps.research.models import Publication, ResearchProject, ResearchCategory
 
@@ -42,7 +41,6 @@ class PublicationAdmin(ModelAdmin, ImportExportModelAdmin):
         ('Metrics', {
             'fields': ('download_count', 'view_count', 'citation_count')
         }),
-=======
 # Research Admin
 from apps.research.models import Publication, ResearchProject, ResearchCategory
 
@@ -86,5 +84,4 @@ class PublicationAdmin(ModelAdmin, ImportExportModelAdmin):
         ('Metrics', {
             'fields': ('download_count', 'view_count', 'citation_count')
         }),
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0
     )

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 from django.contrib import admin
 from django.urls import path, include
@@ -32,7 +31,6 @@ if settings.DEBUG:
 admin.site.site_header = "ShodhSrija Foundation Admin"
 admin.site.site_title = "ShodhSrija Admin"
 admin.site.index_title = "Welcome to ShodhSrija Foundation Administration"
-=======
 
 from django.contrib import admin
 from django.urls import path, include
@@ -66,4 +64,3 @@ if settings.DEBUG:
 admin.site.site_header = "ShodhSrija Foundation Admin"
 admin.site.site_title = "ShodhSrija Admin"
 admin.site.index_title = "Welcome to ShodhSrija Foundation Administration"
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0

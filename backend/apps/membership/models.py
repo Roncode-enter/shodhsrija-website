@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -268,7 +267,6 @@ class MemberActivity(TimeStampedModel):
 
     def __str__(self):
         return f"{self.member.username} - {self.title}"
-=======
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -538,4 +536,3 @@ class MemberActivity(TimeStampedModel):
 
     def __str__(self):
         return f"{self.member.username} - {self.title}"
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0

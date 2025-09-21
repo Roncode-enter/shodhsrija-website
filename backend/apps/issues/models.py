@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -249,7 +248,6 @@ class IssueSubscription(TimeStampedModel):
 
     def __str__(self):
         return f"{self.user.username} subscribed to {self.issue.issue_number}"
-=======
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -500,4 +498,3 @@ class IssueSubscription(TimeStampedModel):
 
     def __str__(self):
         return f"{self.user.username} subscribed to {self.issue.issue_number}"
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0

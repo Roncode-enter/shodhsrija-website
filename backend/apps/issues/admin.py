@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Issues Admin
 from apps.issues.models import ReportedIssue, IssueCategory
 
@@ -42,7 +41,6 @@ class ReportedIssueAdmin(ModelAdmin):
         ('Resolution', {
             'fields': ('resolution_notes', 'resolved_by', 'resolved_at')
         }),
-=======
 # Issues Admin
 from apps.issues.models import ReportedIssue, IssueCategory
 
@@ -86,5 +84,4 @@ class ReportedIssueAdmin(ModelAdmin):
         ('Resolution', {
             'fields': ('resolution_notes', 'resolved_by', 'resolved_at')
         }),
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0
     )

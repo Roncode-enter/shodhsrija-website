@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -251,7 +250,6 @@ class Headquarters(TimeStampedModel):
         if not self.pk and Headquarters.objects.exists():
             raise ValueError("Only one Headquarters instance is allowed")
         super().save(*args, **kwargs)
-=======
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -504,4 +502,3 @@ class Headquarters(TimeStampedModel):
         if not self.pk and Headquarters.objects.exists():
             raise ValueError("Only one Headquarters instance is allowed")
         super().save(*args, **kwargs)
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0

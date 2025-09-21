@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 from rest_framework import generics, viewsets, status
 from rest_framework.decorators import api_view, permission_classes
@@ -214,7 +213,6 @@ def homepage_data(request):
             'success': False,
             'error': str(e)
         }, status=500)
-=======
 
 from rest_framework import generics, viewsets, status
 from rest_framework.decorators import api_view, permission_classes
@@ -430,4 +428,3 @@ def homepage_data(request):
             'success': False,
             'error': str(e)
         }, status=500)
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0

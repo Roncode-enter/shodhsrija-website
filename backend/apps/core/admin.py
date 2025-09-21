@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 from django.contrib import admin
 from django.utils.html import format_html
@@ -387,7 +386,6 @@ class MediaAssetAdmin(ModelAdmin):
     list_filter = ['asset_type', 'folder', 'created_at']
     search_fields = ['title', 'description', 'original_filename']
     readonly_fields = ['file_size', 'mime_type', 'created_at']
-=======
 
 from django.contrib import admin
 from django.utils.html import format_html
@@ -776,4 +774,3 @@ class MediaAssetAdmin(ModelAdmin):
     list_filter = ['asset_type', 'folder', 'created_at']
     search_fields = ['title', 'description', 'original_filename']
     readonly_fields = ['file_size', 'mime_type', 'created_at']
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0

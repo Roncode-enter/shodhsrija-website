@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Donations Admin
 from apps.donations.models import Donation, DonationCertificate
 
@@ -16,7 +15,6 @@ class DonationCertificateAdmin(ModelAdmin):
     list_display = ['certificate_number', 'donation', 'financial_year', 'status', 'issued_date']
     list_filter = ['status', 'financial_year', 'issued_date']
     search_fields = ['certificate_number', 'donation__donor_name']
-=======
 # Donations Admin
 from apps.donations.models import Donation, DonationCertificate
 
@@ -34,5 +32,4 @@ class DonationCertificateAdmin(ModelAdmin):
     list_display = ['certificate_number', 'donation', 'financial_year', 'status', 'issued_date']
     list_filter = ['status', 'financial_year', 'issued_date']
     search_fields = ['certificate_number', 'donation__donor_name']
->>>>>>> e22bff9aeb50cc02bb683c74649041d66e908df0
     readonly_fields = ['certificate_number', 'issued_date']
