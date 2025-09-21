@@ -1,0 +1,25 @@
+/* Example button styling - customize as needed */
+
+.btn-primary {
+  background-color: var(--morning-accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb; /* Darker accent */
+}
+
+/* Card styling */
+.card {
+  background-color: var(--morning-bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Add more component-specific styles as needed */
