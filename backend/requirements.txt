@@ -36,3 +36,4 @@ diff-match-patch==20241021
 packaging==25.0
 wcwidth==0.2.13
 django-filter
+psycopg2-binary
