@@ -24,7 +24,7 @@ class ResearchCategoryAdmin(admin.ModelAdmin):
     color_preview.short_description = "Color"
 
 @admin.register(Publication)
-class PublicationAdmin(admin.ModelAdmin, ImportExportModelAdmin):
+class PublicationAdmin(ImportExportModelAdmin):
     list_display = ['title', 'publication_type', 'status', 'publication_date', 'download_count']
     list_filter = ['publication_type', 'status', 'category', 'publication_date']
     search_fields = ['title', 'abstract', 'keywords']
@@ -51,6 +51,4 @@ class PublicationAdmin(admin.ModelAdmin, ImportExportModelAdmin):
         ('Metrics', {
             'fields': ('download_count', 'view_count', 'citation_count')
         }),
-    )  # This closing parenthesis properly ends the tuple
-
-
+    )
