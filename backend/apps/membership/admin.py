@@ -6,6 +6,8 @@ from django.utils.safestring import mark_safe
 from unfold.admin import ModelAdmin
 from import_export.admin import ImportExportModelAdmin
 from .models import *
+from apps.membership.models import Team
+
 
 @admin.register(Team)
 class TeamAdmin(ModelAdmin, ImportExportModelAdmin):
