@@ -23,21 +23,22 @@ class PublicationAdmin(ModelAdmin, ImportExportModelAdmin):
     filter_horizontal = ['authors']
 
     fieldsets = (
-        ('Basic Information', {
-            'fields': ('title', 'abstract', 'publication_type', 'status', 'featured')
-        }),
-        ('Publication Details', {
-            'fields': ('journal_name', 'publisher', 'publication_date', 'volume', 'issue', 'pages')
-        }),
-        ('Identifiers', {
-            'fields': ('doi', 'isbn', 'issn', 'arxiv_id')
-        }),
-        ('Files and Links', {
-            'fields': ('pdf_file', 'external_url', 'cover_image')
-        }),
-        ('Categorization', {
-            'fields': ('category', 'keywords', 'tags')
-        }),
-        ('Metrics', {
-            'fields': ('download_count', 'view_count', 'citation_count')
-        }),
+    ('Basic Information', {
+        'fields': ('title', 'abstract', 'publication_type', 'status', 'featured')
+    }),
+    ('Publication Details', {
+        'fields': ('journal_name', 'publisher', 'publication_date', 'volume', 'issue', 'pages')
+    }),
+    ('Identifiers', {
+        'fields': ('doi', 'isbn', 'issn', 'arxiv_id')
+    }),
+    ('Files and Links', {
+        'fields': ('pdf_file', 'external_url', 'cover_image')
+    }),
+    ('Categorization', {
+        'fields': ('category', 'keywords', 'tags')
+    }),
+    ('Metrics', {
+        'fields': ('download_count', 'view_count', 'citation_count')
+    }),
+)  # <-- Add this closing parenthesis
