@@ -1,15 +1,14 @@
-# Research Admin
-from django.utils.html import format_html
-from apps.research.models import Publication, ResearchProject, ResearchCategory
 from django.contrib import admin
-from django.contrib.admin import ModelAdmin
-from import_export.admin import ImportExportModelAdmin  # Assuming you use this
+from apps.research.models import Publication, ResearchCategory
+from django.utils.html import format_html
+from import_export.admin import ImportExportModelAdmin  # If used
 
-# Unregister ResearchCategory if it is already registered to avoid AlreadyRegistered error
-try:
-    admin.site.unregister(ResearchCategory)
-except admin.sites.NotRegistered:
-    pass
+# Unregister ResearchCategory and Publication if already registered to avoid errors
+for model in [ResearchCategory, Publication]:
+    try:
+        admin.site.unregister(model)
+    except admin.sites.NotRegistered:
+        pass
 
 @admin.register(ResearchCategory)
 class ResearchCategoryAdmin(admin.ModelAdmin):
