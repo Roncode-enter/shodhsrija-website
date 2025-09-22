@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from apps.core.models import TimeStampedModel
 import uuid
+from cloudinary.models import CloudinaryField
 
 class Donation(TimeStampedModel):
     """Donation records"""
