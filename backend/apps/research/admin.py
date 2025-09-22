@@ -1,5 +1,7 @@
 # Research Admin
 from apps.research.models import Publication, ResearchProject, ResearchCategory
+from django.contrib import admin
+
 
 @admin.register(ResearchCategory)
 class ResearchCategoryAdmin(ModelAdmin):
