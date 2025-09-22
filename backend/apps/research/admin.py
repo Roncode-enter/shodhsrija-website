@@ -3,8 +3,13 @@ from django.utils.html import format_html
 from apps.research.models import Publication, ResearchProject, ResearchCategory
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-
 from import_export.admin import ImportExportModelAdmin  # Assuming you use this
+
+# Unregister ResearchCategory if it is already registered to avoid AlreadyRegistered error
+try:
+    admin.site.unregister(ResearchCategory)
+except admin.sites.NotRegistered:
+    pass
 
 @admin.register(ResearchCategory)
 class ResearchCategoryAdmin(admin.ModelAdmin):
@@ -47,4 +52,5 @@ class PublicationAdmin(admin.ModelAdmin, ImportExportModelAdmin):
             'fields': ('download_count', 'view_count', 'citation_count')
         }),
     )  # This closing parenthesis properly ends the tuple
+
 
