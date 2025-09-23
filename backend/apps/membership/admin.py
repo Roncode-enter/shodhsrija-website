@@ -5,6 +5,17 @@ from django.utils.html import format_html
 from unfold.admin import ModelAdmin
 from import_export.admin import ImportExportModelAdmin
 from .models import Team, MembershipTier, MembershipApplication, Payment
+from .models import MembershipTier
+
+try:
+    admin.site.unregister(MembershipTier)
+except admin.sites.NotRegistered:
+    pass
+
+@admin.register(MembershipTier)
+class MembershipTierAdmin(ModelAdmin, ImportExportModelAdmin):
+    # your admin configurations
+
 
 @admin.register(Team)
 class TeamAdmin(ModelAdmin, ImportExportModelAdmin):
