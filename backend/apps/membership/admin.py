@@ -6,8 +6,8 @@ from unfold.admin import ModelAdmin
 from import_export.admin import ImportExportModelAdmin
 from .models import Team, MembershipTier, MembershipApplication, Payment
 
-# Unregister existing registrations to avoid AlreadyRegistered errors
-for model in (MembershipTier, MembershipApplication):
+# Unregister existing admin registrations to avoid AlreadyRegistered errors
+for model in (MembershipTier, MembershipApplication, Payment):
     try:
         admin.site.unregister(model)
     except admin.sites.NotRegistered:
@@ -99,7 +99,7 @@ class TeamAdmin(ModelAdmin, ImportExportModelAdmin):
     photo_preview.short_description = "Photo"
 
 @admin.register(Payment)
-class PaymentAdmin(ModelAdmin):
+class PaymentAdmin(ModelAdmin, ImportExportModelAdmin):
     list_display = ['payment_id', 'user', 'payment_type', 'amount', 'status', 'initiated_at']
     list_filter = ['payment_type', 'status', 'initiated_at']
     readonly_fields = [
