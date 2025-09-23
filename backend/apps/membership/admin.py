@@ -1,11 +1,8 @@
-# apps/membership/admin.py
-
 from django.contrib import admin
 from django.utils.html import format_html
 from unfold.admin import ModelAdmin
 from import_export.admin import ImportExportModelAdmin
 from .models import Team, MembershipTier, MembershipApplication, Payment
-from .models import MembershipTier
 
 try:
     admin.site.unregister(MembershipTier)
@@ -14,8 +11,10 @@ except admin.sites.NotRegistered:
 
 @admin.register(MembershipTier)
 class MembershipTierAdmin(ModelAdmin, ImportExportModelAdmin):
-    # your admin configurations
-
+    list_display = ['display_name', 'name', 'price_2_months', 'price_4_months', 'is_active', 'order']
+    list_filter = ['name', 'is_active']
+    list_editable = ['is_active', 'order']
+    ordering = ['order']
 
 @admin.register(Team)
 class TeamAdmin(ModelAdmin, ImportExportModelAdmin):
