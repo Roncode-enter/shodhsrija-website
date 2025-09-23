@@ -5,8 +5,19 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from unfold.admin import ModelAdmin
 from import_export.admin import ImportExportModelAdmin
-from .models import *
-from apps.membership.models import Team
+from .models import *  # This already imports Team, Department, FocusArea, etc.
+
+# Membership Admin imports
+from apps.membership.models import MembershipTier, MembershipApplication, Payment
+
+# Donations Admin imports  
+from apps.donations.models import Donation, DonationCertificate
+
+# Issues Admin imports
+from apps.issues.models import ReportedIssue, IssueCategory
+
+# CMS Admin imports
+from apps.cms.models import SiteSettings, Page, MediaAsset
 
 
 @admin.register(Team)
