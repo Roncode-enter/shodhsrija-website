@@ -6,11 +6,12 @@ from unfold.admin import ModelAdmin
 from import_export.admin import ImportExportModelAdmin
 from .models import Team, MembershipTier, MembershipApplication, Payment
 
-# Unregister any existing admin registration for MembershipTier
-try:
-    admin.site.unregister(MembershipTier)
-except admin.sites.NotRegistered:
-    pass
+# Unregister existing registrations to avoid AlreadyRegistered errors
+for model in (MembershipTier, MembershipApplication):
+    try:
+        admin.site.unregister(model)
+    except admin.sites.NotRegistered:
+        pass
 
 @admin.register(MembershipTier)
 class MembershipTierAdmin(ModelAdmin, ImportExportModelAdmin):
@@ -18,38 +19,6 @@ class MembershipTierAdmin(ModelAdmin, ImportExportModelAdmin):
     list_filter = ['name', 'is_active']
     list_editable = ['is_active', 'order']
     ordering = ['order']
-
-@admin.register(Team)
-class TeamAdmin(ModelAdmin, ImportExportModelAdmin):
-    list_display = ['name', 'position', 'status', 'order', 'photo_preview']
-    list_filter = ['position', 'status']
-    search_fields = ['name', 'bio_short']
-    list_editable = ['order', 'status']
-    ordering = ['order', 'name']
-
-    fieldsets = (
-        ('Basic Information', {
-            'fields': ('name', 'position', 'status', 'order')
-        }),
-        ('Biography', {
-            'fields': ('bio_short', 'bio_long')
-        }),
-        ('Media', {
-            'fields': ('photo',)
-        }),
-        ('Contact & Social', {
-            'fields': ('email', 'linkedin', 'twitter')
-        }),
-    )
-
-    def photo_preview(self, obj):
-        if obj.photo:
-            return format_html(
-                '<img src="{}" width="50" height="50" style="border-radius: 25px;" />',
-                obj.photo.url
-            )
-        return "No photo"
-    photo_preview.short_description = "Photo"
 
 @admin.register(MembershipApplication)
 class MembershipApplicationAdmin(ModelAdmin):
@@ -96,6 +65,38 @@ class MembershipApplicationAdmin(ModelAdmin):
             return format_html('<a href="{}">{}</a>', url, obj.user.username)
         return "No user"
     user_link.short_description = "User"
+
+@admin.register(Team)
+class TeamAdmin(ModelAdmin, ImportExportModelAdmin):
+    list_display = ['name', 'position', 'status', 'order', 'photo_preview']
+    list_filter = ['position', 'status']
+    search_fields = ['name', 'bio_short']
+    list_editable = ['order', 'status']
+    ordering = ['order', 'name']
+
+    fieldsets = (
+        ('Basic Information', {
+            'fields': ('name', 'position', 'status', 'order')
+        }),
+        ('Biography', {
+            'fields': ('bio_short', 'bio_long')
+        }),
+        ('Media', {
+            'fields': ('photo',)
+        }),
+        ('Contact & Social', {
+            'fields': ('email', 'linkedin', 'twitter')
+        }),
+    )
+
+    def photo_preview(self, obj):
+        if obj.photo:
+            return format_html(
+                '<img src="{}" width="50" height="50" style="border-radius: 25px;" />',
+                obj.photo.url
+            )
+        return "No photo"
+    photo_preview.short_description = "Photo"
 
 @admin.register(Payment)
 class PaymentAdmin(ModelAdmin):
