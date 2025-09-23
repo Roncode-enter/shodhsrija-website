@@ -1,9 +1,12 @@
+# apps/membership/admin.py
+
 from django.contrib import admin
 from django.utils.html import format_html
 from unfold.admin import ModelAdmin
 from import_export.admin import ImportExportModelAdmin
 from .models import Team, MembershipTier, MembershipApplication, Payment
 
+# Unregister any existing admin registration for MembershipTier
 try:
     admin.site.unregister(MembershipTier)
 except admin.sites.NotRegistered:
@@ -48,13 +51,6 @@ class TeamAdmin(ModelAdmin, ImportExportModelAdmin):
         return "No photo"
     photo_preview.short_description = "Photo"
 
-@admin.register(MembershipTier)
-class MembershipTierAdmin(ModelAdmin, ImportExportModelAdmin):
-    list_display = ['display_name', 'name', 'price_2_months', 'price_4_months', 'is_active', 'order']
-    list_filter = ['name', 'is_active']
-    list_editable = ['is_active', 'order']
-    ordering = ['order']
-
 @admin.register(MembershipApplication)
 class MembershipApplicationAdmin(ModelAdmin):
     list_display = ['full_name', 'membership_tier', 'status', 'total_amount', 'created_at', 'user_link']
@@ -96,8 +92,7 @@ class MembershipApplicationAdmin(ModelAdmin):
 
     def user_link(self, obj):
         if obj.user:
-            from django.urls import reverse
-            url = reverse('admin:auth_user_change', args=[obj.user.id])
+            url = admin.reverse('auth_user_change', args=[obj.user.id])
             return format_html('<a href="{}">{}</a>', url, obj.user.username)
         return "No user"
     user_link.short_description = "User"
